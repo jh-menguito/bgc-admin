@@ -1,0 +1,45 @@
+.toolbar{
+  background-color: #70C9D1;
+  }
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.mat-mdc-raised-button.dialog{
+  background-color: #f4811e;
+  color: #feffff;
+  border-radius: 50px;
+}
+
+.editBtn {
+  color: #3855A5;
+}
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .container{
+    max-width: 1100px;
+    margin: 0 auto;
+
+  }
+
+  .logo{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+
+  .bg{
+    background-image: url('../assets/bg1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+  }

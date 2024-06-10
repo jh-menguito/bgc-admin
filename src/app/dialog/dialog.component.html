@@ -1,0 +1,79 @@
+<h1 mat-dialog-title>Add Driver's Information</h1>
+<div mat-dialog-content>
+  <form [formGroup]="personalForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input formControlName="driver_name" matInput placeholder="Enter Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Plate Number</mat-label>
+      <input
+        formControlName="plate_number"
+        matInput
+        placeholder="Enter Plate Number"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Bus Routes</mat-label>
+      <mat-select formControlName="bus_route" placeholder="Select Bus Route">
+        <mat-option value="Arca">Arca South Express</mat-option>
+        <mat-option value="Central">Central Express</mat-option>
+        <mat-option value="East">East Express</mat-option>
+        <mat-option value="North">North Route</mat-option>
+        <mat-option value="Weekend">Weekend Route</mat-option>
+        <mat-option value="West">West Route</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="outline">
+                <mat-label>Birthday</mat-label>
+                <input formControlName ="Birthday" matInput [matDatepicker]="picker" placeholder="Select Birthday" readonly
+                [max]="maxDate"> 
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field> -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput placeholder="Enter Email" />
+      <mat-error
+        *ngIf="
+          personalForm.get('email')?.invalid &&
+          personalForm.get('email')?.touched
+        "
+      >
+        Please enter valid email</mat-error
+      >
+      <!--if invalid, this will show-->
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="outline">
+                    <mat-label>Contact Number</mat-label>
+                    <span matTextPrefix>+63 &nbsp;</span>
+                    <input formControlName ="Number" matInput type="number" placeholder="Enter Contact Number">
+                    </mat-form-field> -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput placeholder="Enter Password" />
+    </mat-form-field>
+  </form>
+</div>
+
+<div>
+  <div mat-dialog-action [align]="'end'">
+    <button
+      style="margin-right: 10px"
+      mat-raised-button
+      class="saveUpd"
+      (click)="saveInfo()"
+    >
+      {{ actionBtn }}
+    </button>
+    <button mat-raised-button class="closeBtn" color="warn" mat-dialog-close>
+      Close
+    </button>
+  </div>
+</div>

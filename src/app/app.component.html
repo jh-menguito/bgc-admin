@@ -1,0 +1,97 @@
+<mat-toolbar class="toolbar">
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>home</mat-icon>
+    </button> -->
+  <img class="logo" src="assets/bgc-bus-logo.png" />
+  <span>BGC Bus Drivers Database</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button class="dialog" (click)="openDialog()">
+    Add Bus Driver
+  </button>
+</mat-toolbar>
+
+<div class="bg">
+  <div class="container">
+    <div style="margin-top: 10px">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
+      </mat-form-field>
+
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <!-- Name Column -->
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Bus Driver Name
+            </th>
+            <td mat-cell *matCellDef="let row">{{ row.driver_name }}</td>
+          </ng-container>
+
+          <!-- plateNum Column -->
+          <ng-container matColumnDef="plateNum">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Plate Number
+            </th>
+            <td mat-cell *matCellDef="let row">{{ row.plate_number }}</td>
+          </ng-container>
+
+          <!-- Route Column  -->
+          <ng-container matColumnDef="Route">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Bus Route</th>
+            <td mat-cell *matCellDef="let row">{{ row.bus_route }}</td>
+          </ng-container>
+
+          <!-- Birthday Column 
+      <ng-container matColumnDef="Birthday">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Birthday </th>
+        <td mat-cell *matCellDef="let row"> {{row.Birthday | date}} </td>
+      </ng-container> -->
+
+          <!-- Email Column -->
+          <ng-container matColumnDef="Email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+            <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+          </ng-container>
+
+          <!-- Password Column -->
+          <ng-container matColumnDef="Password">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Password</th>
+            <td mat-cell *matCellDef="let row">{{ row.password }}</td>
+          </ng-container>
+
+          <!-- Number Column
+      <ng-container matColumnDef="Number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact Number </th>
+        <td mat-cell *matCellDef="let row"> {{row.Number}} </td>
+      </ng-container> -->
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+            <td mat-cell *matCellDef="let element; index as i; let row">
+              <button mat-icon-button (click)="editInfo(row)" class="editBtn">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="deleteInfo(i)" color="warn">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Add data to match the filter</td>
+          </tr>
+        </table>
+
+        <!--<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" [length]="dataSource.paginator?.length" showFirstLastButtons=""></mat-paginator>
+  </div>-->
+      </div>
+    </div>
+  </div>
+</div>

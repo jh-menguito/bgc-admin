@@ -1,0 +1,13 @@
+mat-form-field{
+    width: 100%;
+}
+
+.mat-mdc-raised-button.saveUpd{
+    background-color: #3855A5;
+    color:white;
+    border-radius: 50px;
+}
+
+.mat-mdc-raised-button.closeBtn{
+    border-radius: 50px;
+}
